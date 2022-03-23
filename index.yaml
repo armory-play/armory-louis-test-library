@@ -3,12 +3,12 @@ entries:
   louis-library:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-03-22T14:41:19.008976-07:00"
+    created: "2022-03-23T08:43:57.621028-07:00"
     description: helm chart
-    digest: 564e83386feb730632b4051f7b4c4bfc5d27b6ae9d1562912a5cd3f4ac13af01
+    digest: 0886f07a4fb3a20763071b3fc98f6c0fca04f3320da27397b625c8d2c582cc0f
     name: louis-library
     type: library
     urls:
-    - https://armory-play.github.io/armory-louis-test-library/louis-library-1.0.0.tgz
-    version: 1.0.0
-generated: "2022-03-22T14:41:19.008527-07:00"
+    - https://armory-play.github.io/armory-louis-test-library/louis-library-1.0.1.tgz
+    version: 1.0.1
+generated: "2022-03-23T08:43:57.618664-07:00"
