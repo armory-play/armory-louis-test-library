@@ -62,7 +62,7 @@ spec:
       labels:
         helm.sh/deployed-by: {{ $outer.Values.appName}}
       {{- if $this.labels }}
-        {{- toYaml $this.labels | nindent 6 }}
+        {{- toYaml $this.labels | nindent 8 }}
       {{- else }}
         app: {{ $this.name }}
       {{- end }}
