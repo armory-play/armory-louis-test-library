@@ -40,7 +40,7 @@ metadata:
     app.kubernetes.io/instance: {{ $outer.Release.Name | quote }}
     helm.sh/chart: "{{ $outer.Chart.Name }}-{{ $outer.Chart.Version }}"
   {{- if $this.labels }}
-    {{- toYaml $this.labels | nindent 6 }}
+    {{- toYaml $this.labels | nindent 4 }}
   {{- else }}
     app: {{ $this.name }}
   {{- end }}
