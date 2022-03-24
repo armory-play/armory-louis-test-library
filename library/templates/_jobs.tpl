@@ -4,16 +4,16 @@ Wrapper Template for Deployment. Iterating map of jobs
 {{- define "serverapp.job.wrapper.tpl"}}
 {{- $outer := .}}
   {{- range $k, $v := .Values.jobs }}
-	{{ include "serverapp.job.tpl" (list $v $outer) }}
-	initContainers:
-	{{- include "serverapp.dependencyCheckers.tpl" (list $v $outer) | indent 6}}
-	{{- range $kk, $vv := $v.initContainers }}
-	  {{- include "serverapp.container.tpl" (list $vv $outer) | indent 6 }}
-	{{- end }}
-	containers:
-	{{- range $kk, $vv := $v.containers }}
-	  {{- include "serverapp.container.tpl" (list $vv $outer) | indent 6 }}
-	{{- end }}
+    {{ include "serverapp.job.tpl" (list $v $outer) }}
+      initContainers:
+    {{- include "serverapp.dependencyCheckers.tpl" (list $v $outer) | indent 6}}
+    {{- range $kk, $vv := $v.initContainers }}
+      {{- include "serverapp.container.tpl" (list $vv $outer) | indent 6 }}
+    {{- end }}
+      containers:
+    {{- range $kk, $vv := $v.containers }}
+      {{- include "serverapp.container.tpl" (list $vv $outer) | indent 6 }}
+    {{- end }}
 ---
   {{- end }}
 {{- end }}
