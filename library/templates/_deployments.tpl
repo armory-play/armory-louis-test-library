@@ -8,7 +8,13 @@ Wrapper Template for Deployment. Iterating map of deployments
       initContainers:
       {{- include "serverapp.dependencyCheckers.tpl" (list $v $outer) | indent 6}}
       {{- range $kk, $vv := $outer.Values.jobs }}
-        {{- if (not (eq $vv.isMigration false)) }}
+        {{- $shouldRunJobFirst := false }}
+        {{- if (hasKey $vv "shouldRunJobFirst") }}
+          {{- $shouldRunJobFirst = $vv.shouldRunJobFirst }}
+        {{- else if (hasKey $outer.Values.global "shouldRunJobFirst" )}}
+          {{- $shouldRunJobFirst = $outer.Values.global.shouldRunJobFirst }}
+        {{- end }}
+        {{- if (eq $shouldRunJobFirst true) }}
           {{- include "serverapp.container.waitForJob.tpl" (list $vv $outer) | indent 6 }}
         {{- end}}
       {{- end }}
